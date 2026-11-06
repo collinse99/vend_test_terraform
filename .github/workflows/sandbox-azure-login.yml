@@ -10,6 +10,7 @@ permissions:
 jobs:
   verify-azure-access:
     runs-on: ubuntu-latest
+    environment: sandbox    
 
     steps:
       - name: Log in to Azure
