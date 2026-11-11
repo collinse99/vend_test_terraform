@@ -10,17 +10,17 @@ terraform {
 
   backend "azurerm" {
     resource_group_name  = "rg-terraform-state-sandbox"
-    storage_account_name = "erictfstate2026"
+    storage_account_name  = "erictfstate2026"
     container_name       = "tfstate"
     key                  = "guardian-storage.tfstate"
-
-    # Authenticate to the state backend with the GitHub OIDC identity.
-    use_oidc        = true
+    use_oidc         = true
     use_azuread_auth = true
   }
 }
 
 provider "azurerm" {
-  resource_provider_registrations = "none"
   features {}
+
+  resource_provider_registrations = "none"
+  storage_use_azuread             = true
 }
